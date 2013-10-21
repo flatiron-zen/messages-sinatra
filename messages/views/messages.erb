@@ -15,30 +15,17 @@
         # filling the content from
         # the message
       %>
-      <% @messages.each do |message| %>
+
       <div class="message">
         <a href="" class="close"></a>
         <div class="from">
-          <%= message.from %>
         </div>
         <div class="content">
-          <%= message.content %>
         </div>
         <div class="time">
-          <%= message.created_at.strftime("%m %d %Y") %>
         </div>
       </div>
-      <% end %>
 
     </div>
-
-
-    <form method="post" action="/">
-      To: <input type="text" name="to" /> <br/>
-      From: <input type="text" name="from" /> <br/>
-      Content: <textarea name="content"></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
   </body>
 </html>

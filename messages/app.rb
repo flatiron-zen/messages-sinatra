@@ -18,6 +18,8 @@
 # 3. You need to edit messages.erb to iterate
 # through all the @messages and print out the
 # data
+
+
 require 'sinatra'
 require "sinatra/reloader"
 require 'data_mapper'
@@ -26,7 +28,7 @@ require 'sqlite3'
 require_relative 'models/message'
 
 # this sets up an in-memory database
-DataMapper.setup(:default, 'sqlite::memory:')
+DataMapper.setup(:default, 'sqlite:///Users/manu/Development/code/rack-intro-ruby-003/messages/messages.db')
 
 class MessageApp < Sinatra::Base
   configure :development do
@@ -43,6 +45,14 @@ class MessageApp < Sinatra::Base
   get '/migrate' do
     DataMapper.auto_migrate!
     "Database migrated! All tables reset."
+  end
+
+  post '/' do
+    message = Message.new(
+      :from => params[:from], :content => params[:content]
+      )
+    message.save
+    "success"
   end
 
 end

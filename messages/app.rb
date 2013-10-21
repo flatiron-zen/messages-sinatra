@@ -19,11 +19,12 @@
 # through all the @messages and print out the
 # data
 
-
+require 'thin'
 require 'sinatra'
 require "sinatra/reloader"
 require 'data_mapper'
 require 'sqlite3'
+require 'digest/md5'
 
 require_relative 'models/message'
 
@@ -49,7 +50,7 @@ class MessageApp < Sinatra::Base
 
   post '/' do
     message = Message.new(
-      :from => params[:from], :content => params[:content]
+      :from => params[:from], :email => params[:email], :content => params[:content]
       )
     message.save
     "success"

@@ -13,6 +13,7 @@
       <% @messages.each do |message| %>
 
       <div class="message">
+        <img src="<%= message.get_gravatar_url %>" alt="<%= message.email %>" />
         <a href="" class="close"></a>
         <div class="from">
           <%= message.from %>
@@ -23,6 +24,7 @@
         <div class="time">
           <%= message.created_at.strftime("%B %d, %Y ") %>
         </div>
+        <div class="clearfix"></div>
       </div>
 
       <% end %>

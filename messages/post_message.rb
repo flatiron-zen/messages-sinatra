@@ -10,15 +10,18 @@ to = gets.chomp
 print "Who are you? "
 from = gets.chomp
 
+print "What's your email? "
+email = gets.chomp.downcase
+
 print "Your message: "
 content = gets.chomp
 
 puts ""
 print "Sending message..."
 
-uri = URI("http://localhost:9292/")
+uri = URI("http://localhost:3000/")
 
-params = { :to => to, :from => from, :content => content }
+params = { :to => to, :from => from, :email => email, :content => content }
 
 response = Net::HTTP.post_form(uri, params)
 

@@ -44,6 +44,25 @@ body {
   border-top: 1px solid #fff;
 }
 
+.message img {
+  float: left;
+  margin: 5px 15px 5px 0px;
+  border: 5px solid #ebeef5;
+  transition: all 0.5s ease-in-out;
+  border-radius: 100px;
+}
+
+.message img:hover {
+  border: 5px solid yellow;
+  transform: rotate(180deg);
+  -webkit-transform:rotate(180deg);
+}
+
+.clearfix {
+  clear: both;
+  height: 0px;
+}
+
 .message:hover .close {
   display: block;
   background: url('/close.png');

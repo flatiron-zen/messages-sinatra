@@ -13,8 +13,8 @@
       <% @messages.each do |message| %>
 
       <div class="message">
-        <img src="<%= message.get_gravatar_url %>" alt="<%= message.email %>" />
-        <a href="" class="close"></a>
+        <img src="<%= message.get_gravatar_url %>" height=100 width=100 alt="<%= message.email %>" />
+        <a href="/destroy/<%= message.id %>" class="close"></a>
         <div class="from">
           <%= message.from %>
         </div>

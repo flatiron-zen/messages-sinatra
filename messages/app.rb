@@ -56,6 +56,12 @@ class MessageApp < Sinatra::Base
     "success"
   end
 
+  get "/destroy/:id" do
+    post = Message.get(params[:id])
+    post.destroy
+    redirect to("http://localhost:3000/")
+  end
+
 end
 
 DataMapper.finalize

@@ -1,5 +1,4 @@
 # config.ru
-
 class AddStatusCode
   def initialize(app)
     @app = app
@@ -8,17 +7,16 @@ class AddStatusCode
   def call(env)
     status, headers, body = @app.call(env)
     
-    # TODO: Add a proper status code to the HTTP
-    #       headers and return the response.
+    # TODO:
+    # return a new response with a valid status code
   end
 end
 
 class MyApp
   def call(env)
-    [nil, {}, ["Hello world!"]]
+    [nil, {}, ["Hello"]]
   end
 end
 
-
-# TODO: Tell the app to use the "AddStatusCode" middleware.
+#TODO use AddStatusCode to create a valid response
 run MyApp.new
